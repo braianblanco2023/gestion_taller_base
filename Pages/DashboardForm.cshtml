@@ -1,0 +1,88 @@
+﻿@page
+@model TallerAppRazor.Pages.DashboardFormModel
+@{
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="contenedor1">
+        <h2>Servicios y Ganancias por registro mensual</h2>
+        <h5>Recorra la gráfica de registros mediante este control, para observar los diferentes períodos:</h5>
+        <div id="slider-container">
+            <input type="range" id="slider" min="0" max="11" value="0">
+            Período (Mes/Año):
+            <label id="slider-label"></label>
+        </div>
+        <div id="bar-chart-container">
+            <canvas id="bar-chart"></canvas>
+        </div>
+        <div id="bar-chart-container">
+            <canvas id="bar-chart2"></canvas>
+        </div>   
+    </div>
+    <h2>Registro de Atenciones por Categoría</h2>
+    <div id="contenedor2">
+        <div id="idTablaPieChart">
+            <table id="tablaPieChart">
+                <thead>
+                    <tr>
+                        <th colspan=3>Todos los Servicios Realizados</th>
+                    </tr>
+                    <tr>
+                        <th>Tipo de Servicio</th>
+                        <th>Cant. Servicios</th>
+                        <th>% del Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var group in Model.Registros.GroupBy(r => r.tipoServicio))
+                    {
+                        <tr>
+                            <td data-nombre="@group.Key">@group.Key</td>
+                            <td data-cantidad="@group.Count()">@group.Count()</td>
+                            <td data-porcentaje="@(((decimal)group.Count() * 100 / Model.Registros.Count()).ToString("0.0"))">% @(((decimal)group.Count() * 100 / Model.Registros.Count()).ToString("0.0"))</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan=3 data-total="@Model.Registros.Count()">Cantidad @Model.Registros.Count()</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div id="chart-container">
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+    <div>
+        <table id="tablaOculta">
+            <thead>
+                <tr>
+                    <th>Período</th>
+                    <th>Cant. Servicios</th>
+                    <th>Facturación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var group in Model.Registros.GroupBy(r => new DateTime(r.fecha.Year, r.fecha.Month, 1)).OrderBy(g => g.Key))
+                {
+                    <tr>
+                        <td data-fecha="@group.Key.Month/@group.Key.Year">@group.Key.Month/@group.Key.Year</td>
+                        <td data-services="@group.Count()">@group.Count()</td>
+                        <td data-facturareal="@group.Sum(g => g.costoServicio)">@group.Sum(g => g.costoServicio)</td>
+                        <td data-facturacion="@group.Sum(g => g.costoTotal)">@group.Sum(g => g.costoTotal)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+<link rel="stylesheet" href="~/css/style2.css" />
+<script type="text/javascript" src="~/js/script3.js"></script>
+</html>

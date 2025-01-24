@@ -1,0 +1,131 @@
+/* Ocultamos la tabla que solo se utiliza para volcar datos, pero no debe mostrarse */
+#tablaOculta {
+  display: none;
+}
+
+#contenedor1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+}
+#bar-chart-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%; /* Proporción rectangular, puede ajustarse según sea necesario */
+  position: relative;
+}
+#slider-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#contenedor2{
+  display: flex;
+  flex-direction: row;
+  align-items: revert;
+}
+#chart-container {
+  width: 50%;
+  height: 0;
+  /*padding-bottom: 100%; /* Proporción cuadrada, puede ajustarse según sea necesario */
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Estilo general de la tabla */
+#idTablaPieChart {
+  width: 45%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  overflow-x: auto; /* Agregado para habilitar desplazamiento horizontal en pantallas pequeñas */
+}
+
+/* Estilo del encabezado */
+#tablaPieChart thead th {
+  background-color: #f2f2f2;
+  color: #333333;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Estilo de las celdas del cuerpo de la tabla */
+#tablaPieChart tbody td {
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilo de las filas impares */
+#tablaPieChart tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Estilo del pie de tabla */
+#tablaPieChart tfoot th {
+  background-color: #e5e5e5;
+  color: #333333;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Estilo de los datos numéricos */
+#tablaPieChart td[data-cantidad],
+#tablaPieChart td[data-porcentaje],
+#tablaPieChart tfoot th[data-total] {
+  text-align: right;
+}
+
+/* Estilo de los datos de porcentaje */
+#tablaPieChart td[data-porcentaje]::before {
+
+  margin-right: 4px;
+}
+
+/* Estilo de los datos de cantidad en el pie de tabla */
+#tablaPieChart tfoot th[data-total]::before {
+
+}
+
+/* Estilo de los datos de nombre */
+#tablaPieChart td[data-nombre] {
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Estilo de los encabezados del tipo de servicio, cantidad y porcentaje */
+#tablaPieChart th:first-child,
+#tablaPieChart th:nth-child(2),
+#tablaPieChart th:nth-child(3) {
+  text-align: left;
+}
+
+/* Estilo para resaltar al pasar el cursor sobre las filas */
+#tablaPieChart tbody tr:hover {
+  background-color: #d2d2d2;
+}
+
+/* Estilo para smartphones (aproximadamente 400px de ancho) */
+@media only screen and (max-width: 650px) {
+  #contenedor2{
+    display: flex;
+    flex-direction: column;
+    align-items: revert;
+  }
+  #chart-container {
+    width: 95%;
+    height: 0;
+    /*padding-bottom: 100%; /* Proporción cuadrada, puede ajustarse según sea necesario */
+    margin-top: 10px;
+    position: relative;
+  }
+
+  /* Estilo general de la tabla */
+  #idTablaPieChart {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    overflow-x: auto; /* Agregado para habilitar desplazamiento horizontal en pantallas pequeñas */
+  }
+}

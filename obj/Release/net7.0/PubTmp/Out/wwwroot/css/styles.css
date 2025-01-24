@@ -1,0 +1,309 @@
+	#div_DatosAutomotor{
+		margin-top: 20px;
+	}
+	#div_NuevaAtencion{
+	}
+	#div_DatosAtencion{
+		display: none;
+	}
+	#div_Guardar{
+		display: none;
+	}
+	body {
+		font-family: 'Rubik', sans-serif;
+	}
+	.div_Padre{
+		position: relative;
+	}
+	.div_Hijo{
+		position: absolute;
+  		width: 80%;
+  		left: 10%;
+	}
+	.title {
+    	margin-top: 50px;
+    	text-align: center;
+  		color: #4f46a5;		
+  		overflow: hidden;
+    }
+    .div_Busqueda {
+    	width: 90%;	
+		position: relative;
+    	margin-left: 10%;
+    	margin-right: 5%;
+    }
+    .txt_buscar {
+    	margin-left: 20px;
+		font-size: 18px;
+  		text-align: center;
+		margin-top: 0px;
+		min-width: 35%;
+		width: 200px;
+		height: 36px;
+	}
+	.btn_small{
+		min-width: 45%;		
+		width: 245px;
+	}
+    legend {
+		font-family: 'Rubik', sans-serif;
+		color: rgba(0,0,0,.4);
+		text-align: center;
+	}
+	fieldset {
+		max-width: 100vw;
+		padding: 20px 20px;
+		border: 2px solid #ddd;
+		border-radius: 4px;
+		animation-name: move;
+		animation-duration: 0.8s;
+		animation-fill-mode: both;
+		margin-bottom: 10px;
+	}
+	.linea-horizontal {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+		animation-name: move;
+		animation-duration: 0.8s;
+		animation-fill-mode: both;
+	}
+
+	.linea-horizontal::before,
+	.linea-horizontal::after {
+		content: "";
+		flex-grow: 1;
+		height: 1px;
+		background-color: black;
+	}
+
+	.linea-horizontal::before {
+		margin-right: 10px;
+	}
+
+	.linea-horizontal::after {
+		margin-left: 10px;
+	}
+
+	.texto-central {
+		font-weight: bold;
+	}
+	.btn{
+		border: 0;
+		border-radius: 3px;
+		color: #fff;
+		background: linear-gradient(to left, #de48b5 0%,#0097ff 100%); 
+		padding: 12px 10px;
+		margin-top: 10px;
+	  	margin-bottom: 20px;
+	  	letter-spacing: 1px;
+	  	font-family: 'Rubik', sans-serif;
+	}
+	.btn:focus{
+		background: linear-gradient(to right, #0097ff 0%,#0097ff 100%); 
+	}
+	.btn.bloqueado {
+		background: linear-gradient(to right, #cccccc, #999999);
+		/* Cambia el color a gris */
+		cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+	}
+	.txtH {
+		height: 36px;
+		outline: 0;
+		transition: .2s;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		width: 190px;
+		padding: 0 20px;
+		font-family: 'Rubik', sans-serif;
+		text-transform: uppercase;
+	}
+	.txt {
+		height: 46px;
+	   	outline: 0;
+		transition: .2s;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		padding: 0 20px;
+		font-family: 'Rubik', sans-serif;
+		text-transform: uppercase;
+	}
+	.txt:focus {
+		border-color: #0f7ef1;
+	}
+	.textbox{
+		border: 2px solid #ddd;
+	    border-radius: 4px;
+		width: 190px;
+	}
+	.textarea{
+		resize: none;
+		overflow-y: hidden;
+		border: none;
+		width: 185px;
+	}
+	.area_mask{
+		border: 2px solid #ddd;
+	    border-radius: 4px;
+		overflow: auto;
+		padding: 10px 0 10px;
+		width: 186px;
+	}
+	.textarea2{
+  		height: auto;
+  		resize: none;
+  		overflow: hidden;
+		word-wrap: break-word;
+		padding: 10px 10px 10px;
+		width: 166px;
+	}
+	.second_area{
+	}
+	.double_column{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.first_column,
+	.second_column {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.first_column {
+		padding: 10px 10px 0;
+	}
+	.second_column {
+		padding: 0 10px 10px;
+	}
+
+	/* Estilos para pantallas maximizadas */
+  	@media only screen and (min-width: 900px) {
+	      .first_column {
+			width: 20%;
+			text-align: center;
+			margin-top: 10px;
+		}
+	      .second_column {
+	      	width: 30%;
+		}
+	}
+	@media only screen and (min-width: 600px) and (max-width: 900px) {
+		.first_column {
+			width: 45%;
+			text-align: center;
+			margin-top: 20px;
+			padding: 10px 10px 0;
+		}
+	      .second_column {
+	      	width: 55%;
+			padding: 10px 10px 0;
+		}
+	}
+	@media only screen and (min-width: 500px) and (max-width: 600px) {
+		.first_column {
+			width: 40%;
+			text-align: center;
+			margin-top: 20px;
+			padding: 10px 10px 0;
+		}
+	      .second_column {
+	      	width: 60%;
+			padding: 10px 10px 0;
+		}
+	}
+	@media only screen and (min-width: 440px) and (max-width: 500px) {
+		.first_column {
+			width: 35%;
+			text-align: center;
+			margin-top: 20px;
+			padding: 10px 10px 0;
+		}
+	      .second_column {
+	      	width: 65%;
+			padding: 10px 10px 0;
+		}
+	}
+	@media only screen and (max-width: 525px){
+		.btn_Menu {
+			height: 60px;
+		}
+	}
+	.btn_big {
+		width: 60%;
+		position: relative;
+		left: 20%;
+		transform: translate(-20%,0%);
+	}
+	.animation {
+		animation-name: move;
+		animation-duration: 1.4s;
+		animation-fill-mode: both;
+		animation-delay: 0.1s;
+	}
+	.a1{
+		animation-delay: 1.2s;
+	}
+	.a2{
+  		animation-delay: 1.6s;
+	}
+	.a3 {
+ 		animation-delay: 1.8s;
+	}
+	.a4 {
+		animation-delay: 0.4s;
+		margin-top: 0px;
+	}
+	.a5 {
+		animation-delay: 0.6s;
+		margin-top: 0px;
+	}
+	.a6 {
+		animation-delay: 0.8s;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	@keyframes move {
+	  0% {
+	    opacity: 0;
+	    visibility: hidden;
+	    transform: translateY(-40px);
+	  }
+	  100% {
+	    opacity: 1;
+	    visibility: visible;
+	    transform: translateY(0);
+	  }
+	}
+	@keyframes form_responsive {
+	  0% {
+	    opacity: 0;
+	    width: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	    padding: 20px 0px;
+	    align-content: center;
+	    width: 400px;
+	  }
+	}
+
+	#div_Historial {
+		font-family: 'Rubik', sans-serif;
+	}
+
+	.table-container {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.title {
+		margin-top: 50px;
+		text-align: center;
+		color: #4f46a5;
+		overflow: hidden;
+	}
+
+
+	tr:nth-child(odd) {
+		background-color: #f9f9f9;
+	}

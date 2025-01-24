@@ -1,0 +1,209 @@
+﻿@page
+@model TallerAppRazor.Pages.AtencionFormModel
+@{
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="div_Padre">
+        <div class="div_Hijo">
+            <form method="post">
+                <div id="div_DatosAutomotor">
+                    <fieldset>
+                        <br>
+                        <legend>Datos del Automotor: <strong>@Model.patenteBuscada</strong></legend>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Marca: </label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.Registro.Marca" id="txt1_1" class="txt textbox" />
+                            </div>
+                            <div class="first_column">
+                                <label>Modelo: </label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.Registro.Modelo" id="txtMarca" class="txt textbox" />
+                            </div>
+                        </div>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Año: </label>
+                            </div>
+                            <div class="second_column">
+                                <select asp-for="@Model.Registro.Anio" class="txt textbox">
+                                    @for (int year = 1970; year <= 2050; year++)
+                                    {
+                                        <option value="@year">@year</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="first_column">
+                                <label>Combustible: </label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.Registro.Combustible" class="txt textbox" />
+                            </div>
+                        </div>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Kilometraje: </label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.Registro.Kilometraje" class="txt textbox" />
+                            </div>
+                            <div class="first_column">
+                                <label>Propietario: </label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.Registro.Titular_Duenio" class="txt textbox" /><br>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="div_NuevaAtencion">
+                    <input type="button" class="btn btn_big animation" onclick="muestra_DatosAtencion()" value="Nueva Atención +" />
+                </div>
+                <div id="div_DatosAtencion">
+                    <fieldset>
+                        <legend>Datos de Atención</legend>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Condicion al Ingreso:</label>
+                            </div>
+                            <div class="second_column">
+                                <div id="area_mask1" class="area_mask">
+                                    <textarea asp-for="@Model.condicionIngreso" id="txt2_1" class="txt textarea"></textarea>
+                                </div>
+				            </div>
+                            <div class="first_column">
+                                <label>Detalle del Servicio:</label>
+                            </div>
+	                        <div class="second_column">
+                                <div id="area_mask2" class="area_mask">
+                                    <textarea asp-for="@Model.servicioRealizado" id="txt2_2" class="txt textarea"></textarea>
+                                </div>
+				            </div>
+                        </div>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Tipo de Servicio: </label>
+                            </div>
+                            <div class="second_column">
+                                <select asp-for="@Model.Registro.tipoServicio" class="txt textbox">
+                                    <option value="Distribución">Distribución</option>
+                                    <option value="Motor">Motor</option>
+                                    <option value="Inyección">Inyección</option>
+                                    <option value="Frenos">Frenos</option>
+                                    <option value="Suspensión">Suspensión</option>
+                                    <option value="Alineación y balanceo">Alineación y balanceo</option>
+                                    <option value="Electricidad">Electricidad</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="first_column">
+                                <label>Costo Servicio:</label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.costoServicio" class="txt textbox" id="costo1" oninput="calcular()" />
+                            </div>
+                        </div>
+                        <div class="double_column">
+                            <div class="first_column">
+                                <label>Costo Repuestos:</label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.costoRepuestos" class="txt textbox" id="costo2" oninput="calcular()" />
+                            </div>
+                            <div class="first_column">
+                                <label>Costo Total:</label>
+                            </div>
+                            <div class="second_column">
+                                <input asp-for="@Model.costoTotal" class="txt textbox" id="costo3" /><br>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div id="div_Guardar">
+                    <button class="btn btn_big animation" asp-page-handler="Completo" onclick="limpiar_Form()">GUARDAR</button>
+                </div>
+            </form>
+            <div id="boton_Historial">
+                <input type="button" id="btnHistorial" class="btn btn_big animation a4" onclick="mostrar_Historial()" value="Ver Historial" />
+            </div>
+            <div id="div_Historial">
+                <div class="linea-horizontal">
+                    <div class="texto-central">Historial</div>
+                </div>
+                @foreach (var item in Model.Registros.Reverse())
+                {
+                <fieldset>
+
+                        <legend>@item.fecha.Day/@item.fecha.Month/@item.fecha.Year</legend>
+                    <div class="double_column">
+                        <div class="first_column">
+                            <label>Condicion al Ingreso:</label>
+                        </div>
+                        <div class="second_column">
+	                      <div id="area_mask1" class="area_mask">
+                                <div class="txt textarea2">
+                                     @item.condicionIngreso
+                                </div>
+				    </div>
+                        </div>
+                        <div class="first_column">
+                            <label>Servicio Realizado:</label>
+                        </div>
+                        <div class="second_column">
+                            <div id="area_mask2" class="area_mask">
+                                 <div class="txt textarea2">
+                                    @item.servicioRealizado
+                                 </div>
+                            </div>
+				</div>
+                    </div>
+                    <div class="double_column">
+                            <div class="first_column">
+                                <label>Kilometraje:</label>
+                            </div>
+                            <div class="second_column">
+                                <input readonly value="@item.Kilometraje" class="txtH textbox"/>
+                            </div>
+                        <div class="first_column">
+                            <label>Costo Servicio:</label>
+                        </div>
+                        <div class="second_column">
+                                <input readonly value="@item.costoServicio" class="txtH textbox"/>
+                        </div>
+                    </div>
+                    <div class="double_column">
+                        <div class="first_column">
+                            <label>Costo Repuestos:</label>
+                        </div>
+                        <div class="second_column">
+                                <input readonly value="@item.costoServicio" class="txtH textbox"/>
+                        </div>
+                        <div class="first_column">
+                            <label>Costo Total:</label>
+                        </div>
+                        <div class="second_column">
+                                <input readonly value="@item.costoTotal" class="txtH textbox"/><br>
+                        </div>
+                    </div>
+                </fieldset>
+                }
+            </div>
+            <div id="div_Volver">
+                <input type="button" class="btn btn_big animation a5" onclick="irABuscar()" value="&#128270; Buscar Otro Vehiculo" />
+                <input type="button" class="btn btn_big animation a6" onclick="irAMenu()" value="« Volver al Inicio «" />
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <script type="text/javascript" src="~/js/dynamic.js"></script>
+</body>
+</html>

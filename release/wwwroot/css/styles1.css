@@ -1,0 +1,247 @@
+
+
+
+#div_DatosAutomotor {
+    display: block;
+}
+
+#div_NuevaAtencion {
+    display: block;
+}
+
+#div_DatosAtencion {
+    display: none;
+}
+
+#div_Guardar {
+    display: none;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+.div_Padre {
+    position: relative;
+}
+
+.div_Hijo {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.title {
+    margin-top: 50px;
+    text-align: center;
+    color: #4f46a5;
+    overflow: hidden;
+}
+
+.div_Busqueda {
+    width: 90%;
+    position: relative;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+.txt_buscar {
+    margin-left: 20px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 0px;
+    min-width: 35%;
+    width: 200px;
+    height: 36px;
+}
+
+.btn_small {
+    min-width: 45%;
+    width: 245px;
+}
+
+legend {
+    font-family: 'Rubik', sans-serif;
+    color: rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+fieldset {
+    max-width: 100vw;
+    padding: 20px 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    animation-name: move;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+.btn {
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    background: linear-gradient(to left, #de48b5 0%, #0097ff 100%);
+    padding: 12px 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn:focus {
+    background: linear-gradient(to right, #0097ff 0%, #0097ff 100%);
+}
+
+.txtH {
+    height: 36px;
+    outline: 0;
+    transition: .2s;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 190%;
+    padding: 0 20px;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+}
+
+.txt {
+    height: 46px;
+    outline: 0;
+    transition: .2s;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 190%;
+    padding: 0 20px;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+}
+
+.txt:focus {
+    border-color: #0f7ef1;
+}
+
+.textbox {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.area_mask {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 10px 0 0 0px;
+}
+
+.textarea {
+    resize: none;
+    overflow-y: hidden;
+    border: none;
+}
+
+.double_column {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.first_column {
+    width: 200px;
+}
+
+.second_column {
+    padding-left: 20px;
+}
+
+.btn_big {
+    width: 60%;
+    position: relative;
+    left: 20%;
+    transform: translate(-20%, 0%);
+}
+
+.animation {
+    animation-name: move;
+    animation-duration: 1.4s;
+    animation-fill-mode: both;
+    animation-delay: 0.1s;
+}
+
+.a1 {
+    animation-delay: 1.2s;
+}
+
+.a2 {
+    animation-delay: 1.6s;
+}
+
+.a3 {
+    animation-delay: 1.8s;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@keyframes form_responsive {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        padding: 20px 0px;
+        align-content: center;
+        width: 400px;
+    }
+}
+
+#div_Historial {
+    font-family: 'Rubik', sans-serif;
+}
+
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.title {
+    margin-top: 50px;
+    text-align: center;
+    color: #4f46a5;
+    overflow: hidden;
+}
+
+.textarea.custom-textarea {
+    resize: none;
+    overflow-y: hidden;
+    border: none;
+}
+
+.custom-text {
+    display: inline-block;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.first_columna {
+    width: 200px;
+}
+
+.second_columna {
+    padding-left: 20px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}

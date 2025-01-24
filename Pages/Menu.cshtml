@@ -1,0 +1,27 @@
+﻿@page
+@model MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="div_Padre">
+        <div class="div_Hijo">
+            <div id="div_Menu">
+                <div class="title animation a1"><h2>Bienvenido</h2></div>
+                <div class="title animation a2"><h3>Seleccione una de las siguientes opciones:</h3></div>
+                <button class="btn btn_big btn_Menu animation a4" onclick="irABuscar()"> &#128270; Buscar por Patente </button>
+                <button class="btn btn_big btn_Menu animation a5" onclick="irABuscar()"> Realizar Nueva Atención +</button>
+                <button class="btn btn_big btn_Menu animation a6" onclick="irADashboard()"> Historial y Estadìsticas del Taller </button>
+            </div>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="~/css/styles.css" />
+<script type="text/javascript" src="~/js/dynamic.js"></script>
+</html>

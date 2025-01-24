@@ -1,0 +1,43 @@
+﻿@page
+@model TallerAppRazor.Pages.RegistroFormModel
+@{
+    ViewData["Title"] = "Registro Formulario";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="div_Padre">
+        <div class="div_Hijo">
+            <form method="post">
+                <div id="div_Busqueda">
+                    <div class="title animation a1"><h2>Formulario Datos y Servicios para el Automotor</h2></div>
+                    <div class="div_Busqueda">
+                        <input type="text" name="campoPatente" id="txt_patente" class="textbox txt_buscar animation a2" />
+                        <input type="submit" id="btn_buscar" class="btn btn_small animation a3" value="INGRESAR"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var txtPtte = document.getElementById('txt_patente');
+        var btnBuscaPtte = document.getElementById('btn_buscar');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (txtPtte.value.trim() !== '') {
+                btnBuscaPtte.disabled = false; 
+            } else {
+                btnBuscaPtte.disabled = true; /
+                btnBuscaPtte.classList.add('bloqueado');
+            }
+        });
+    </script>
+</body>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <script type="text/javascript" src="~/js/dynamic.js"></script>
+</html>
